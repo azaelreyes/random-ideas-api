@@ -1,3 +1,4 @@
+const path = require('path');
 const express = require('express');
 require('dotenv').config();
 const port = process.env.PORT || 5500;
@@ -6,6 +7,7 @@ const connectDB = require('./config/db')
 connectDB();
 
 const app =  express();
+app.use(express.static(path.join(__dirname, 'public')));
 
 //Body Parser middleware
 app.use(express.json());
